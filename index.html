@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gieo Xúc Xắc - Tài Xỉu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <div id="balance">Số tiền: 10.000.000 VND</div>
+    <div id="countdown">00:00:20</div>
+    <div id="player-name">Tên người chơi: Test112</div>
+  </div>
+
+  <div class="game-container">
+    <h1>Trò Chơi Doanh Nhân</h1>
+    <div class="choice-buttons">
+      <button id="btn-xiu">XỈU</button>
+      <button id="btn-tai">TÀI</button>
+    </div>
+    <div>
+      <input type="text" id="bet-amount" placeholder="Nhập số tiền cược" />
+      <button class="bet-btn">Đặt cược</button>
+    </div>
+    <div id="error" class="error"></div>
+
+    <div id="dice-area" class="dice-container">
+      <div class="dice" id="dice1"></div>
+      <div class="dice" id="dice2"></div>
+      <div class="dice" id="dice3"></div>
+      <div class="cover" id="cover"></div>
+    </div>
+
+    <div class="result-box" id="result-box"></div>
+  </div>
+
+  <div class="footer">
+    <div class="neon-rainbow wave">Code by Lê Trọng Nguyên</div>
+    <div class="neon-rainbow wave fast">LƯU Ý CODE VUI VẺ CHỨ KHÔNG CÓ Ý GÌ</div>
+  </div>
+
+  <audio id="click-sound" src="sounds/click.mp3" preload="auto"></audio>
+  <audio id="timeout-sound" src="sounds/timeout.mp3" preload="auto"></audio>
+
+  <script src="main.js"></script>
+
+  <!-- Tự động tách ký tự thành sóng -->
+  <script>
+    document.querySelectorAll(".wave").forEach(el => {
+      const text = el.textContent;
+      el.innerHTML = "";
+      for (let i = 0; i < text.length; i++) {
+        const span = document.createElement("span");
+        span.textContent = text[i];
+        span.style.animationDelay = `${i * 0.05}s`;
+        el.appendChild(span);
+      }
+    });
+  </script>
+</body>
+</html>
